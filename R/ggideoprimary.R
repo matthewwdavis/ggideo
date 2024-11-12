@@ -59,7 +59,7 @@ ggideoprimary <- function(path_fasta, chr_names = "Chr", tel_start_seq = "CCCTAA
   tel_count.table <- telomere_repeat_number(fasta = genome, window = size_windows, tel_start = tel_start_seq, tel_end = tel_end_seq)
 
   # Filter to maintain telomeric counts over a certain threshold
-  tel.table <- srr44_noec_count %>%
+  tel.table <- tel_count.table %>%
     filter(CCCTAAA_Counts >= min_tel_count | TTTAGGG_Counts >= min_tel_count)
 
   # Create the larger table necessary for plotting
