@@ -7,8 +7,7 @@ Authors@R:
 Description: A package for visualizing genomic features, such as chromosome length and telomeres,
     utilizing the flexibility of ggplot2. Additional functionality is expected to be added to ggideo
     to improve flexibility and visualization capabilities over time.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+License: `use_mit_license()`
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
