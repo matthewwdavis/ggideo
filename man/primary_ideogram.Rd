@@ -7,6 +7,9 @@
 primary_ideogram(
   genome.table,
   plot_title = NULL,
+  x_axis_title = NULL,
+  y_axis_title = "Chromosome Length",
+  legend_title = "Telomere Length",
   chr_color = "dodgerblue2",
   chr_size = 8,
   tel_color = "black",
@@ -23,6 +26,12 @@ and the start and end positions of telomere regions (\code{begin_telo_start}, \c
 \code{end_telo_end}, \code{begin_telo_bp}, and \code{end_telo_bp}).}
 
 \item{plot_title}{A character string specifying the plot title. Default is \code{NULL}, in which case no title is added.}
+
+\item{x_axis_title}{A character string specifying the x axis title. Default is \code{NULL}, in which case no title is added.}
+
+\item{y_axis_title}{A character string specifying the y axis title. Default is "Chromosome Length".}
+
+\item{legend_title}{A character string specifying the legend title. Default is "Telomere Presence".}
 
 \item{chr_color}{A character string specifying the color of the chromosome segments. Default is "dodgerblue2".}
 

@@ -42,5 +42,4 @@ genome_size <- 3000000
 name <- "MyGenome"
 genome_table(fasta_lengths_table, telomere_table, name, genome_size)
 
-
 }

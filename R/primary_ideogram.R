@@ -8,6 +8,9 @@
 #'        and the start and end positions of telomere regions (`begin_telo_start`, `begin_telo_end`, `end_telo_start`,
 #'        `end_telo_end`, `begin_telo_bp`, and `end_telo_bp`).
 #' @param plot_title A character string specifying the plot title. Default is `NULL`, in which case no title is added.
+#' @param x_axis_title A character string specifying the x axis title. Default is `NULL`, in which case no title is added.
+#' @param y_axis_title A character string specifying the y axis title. Default is "Chromosome Length".
+#' @param legend_title A character string specifying the legend title. Default is "Telomere Presence".
 #' @param chr_color A character string specifying the color of the chromosome segments. Default is "dodgerblue2".
 #' @param chr_size A numeric value specifying the size (linewidth) of the chromosome segments. Default is 8.
 #' @param tel_color A character string specifying the color of the telomere points. Default is "black".
@@ -33,11 +36,12 @@
 #' )
 #' primary_ideogram(genome.table)
 #'
-#' @importFrom ggplot2
-#' @importFrom scales
+#' @importFrom ggplot2 ggplot aes geom_segment geom_point labs theme_classic theme element_text scale_y_continuous
+#' @importFrom scales label_number
 #'
 #' @export
-primary_ideogram <- function(genome.table, plot_title = NULL, chr_color = "dodgerblue2", chr_size = 8,
+primary_ideogram <- function(genome.table, plot_title = NULL, x_axis_title = NULL, y_axis_title = "Chromosome Length",
+                             legend_title = "Telomere Length", chr_color = "dodgerblue2", chr_size = 8,
                              tel_color = "black", tel_shape = 16, y_scale = 1e-6, y_scale_suffix = "Mb",
                              legend_pos = "bottom", legend_size = 0.25) {
 
@@ -54,7 +58,7 @@ primary_ideogram <- function(genome.table, plot_title = NULL, chr_color = "dodge
                shape = tel_shape,
                color = tel_color) +
     scale_y_continuous(labels = label_number(scale = y_scale, suffix = y_scale_suffix)) +
-    labs(y = "Chromosome Length", x = "Chromosome", size = "Telomere Length", title = plot_title) +
+    labs(y = y_axis_title, x = x_axis_title, size = legend_title, title = plot_title) +
     theme_classic(base_size = 6) +
     theme(legend.position = legend_pos,
           legend.key.size = unit(legend_size, "cm"),

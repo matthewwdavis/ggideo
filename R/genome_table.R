@@ -30,7 +30,7 @@
 #' name <- "MyGenome"
 #' genome_table(fasta_lengths_table, telomere_table, name, genome_size)
 #'
-#' @importFrom dplyr
+#' @importFrom dplyr left_join select mutate
 #'
 #' @export
 genome_table <- function(fasta_lengths_table, telomere_table, name, genome_size){

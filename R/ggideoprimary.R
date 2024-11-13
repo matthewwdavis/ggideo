@@ -12,6 +12,9 @@
 #' @param min_tel_count A numeric value representing the minimum number of telomeric repeats required to retain telomeric counts in the plot. Default is 25.
 #' @param sample_name A character string specifying the name of the sample for labeling purposes. Default is `NULL`.
 #' @param title_plot A character string specifying the title of the plot. Default is `NULL`.
+#' @param title_x_axis A character string specifying the title of the x axis. Default is `NULL`.
+#' @param title_y_axis A character string specifying the title of the y axis. Default is "Chromosome Length".
+#' @param title_legend A character string specifying the title of the legend. Default is "Telomere Presence".
 #' @param color_chr A character string specifying the color of the chromosome segments in the plot. Default is "dodgerblue2".
 #' @param size_chr A numeric value specifying the size (linewidth) of the chromosome segments. Default is 8.
 #' @param color_tel A character string specifying the color of the telomere points. Default is "black".
@@ -31,17 +34,18 @@
 #' # Example usage
 #' # ggideoprimary(path_fasta = "path/to/genome.fasta", sample_name = "Sample_1", title_plot = "Genome Ideogram")
 #'
-#' @importFrom Biostrings
-#' @importFrom data.table
-#' @importFrom ggplot2
-#' @importFrom scales
-#' @importFrom dplyr
+#' @importFrom Biostrings readDNAStringSet
+#' @importFrom data.table data.table
+#' @importFrom ggplot2 ggplot aes geom_segment geom_point labs theme element_text scale_y_continuous
+#' @importFrom scales label_number
+#' @importFrom dplyr filter mutate left_join select
 #'
 #' @export
 ggideoprimary <- function(path_fasta, chr_names = "Chr", tel_start_seq = "CCCTAAA", tel_end_seq = "TTTAGGG",
-                          size_windows = 1e6, min_tel_count = 25, sample_name = NULL, title_plot = NULL, color_chr = "dodgerblue2",
-                          size_chr = 6, color_tel = "black", shape_tel = 16, scale_y = 1e-6, suffix_y_scale = "Mb",
-                          pos_legend = "bottom", size_legend = 0.25){
+                          size_windows = 1e6, min_tel_count = 25, sample_name = NULL, title_plot = NULL,
+                          title_x_axis = NULL, title_y_axis = "Chromosome Length", title_legend = "Telomere Presence",
+                          color_chr = "dodgerblue2", size_chr = 6, color_tel = "black", shape_tel = 16, scale_y = 1e-6,
+                          suffix_y_scale = "Mb", pos_legend = "bottom", size_legend = 0.25){
 
   # Read in fasta
   genome <- readDNAStringSet(path_fasta)
@@ -74,9 +78,11 @@ ggideoprimary <- function(path_fasta, chr_names = "Chr", tel_start_seq = "CCCTAA
 
 
   # plot the ideogram
-  graphic <- primary_ideogram(plotting.table, plot_title = title_plot, chr_color = color_chr, chr_size = size_chr,
-                        tel_color = color_tel, tel_shape = shape_tel, y_scale = scale_y, y_scale_suffix = suffix_y_scale,
-                        legend_pos = pos_legend, legend_size = size_legend)
+  graphic <- primary_ideogram(plotting.table, plot_title = title_plot, x_axis_title = title_x_axis,
+                              y_axis_title = title_y_axis, legend_title = title_legend, chr_color = color_chr,
+                              chr_size = size_chr, tel_color = color_tel, tel_shape = shape_tel,
+                              y_scale = scale_y, y_scale_suffix = suffix_y_scale, legend_pos = pos_legend,
+                              legend_size = size_legend)
 
   return(list(genomic.table = plotting.table, ideogram = graphic))
 }

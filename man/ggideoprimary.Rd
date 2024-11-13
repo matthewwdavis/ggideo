@@ -13,6 +13,9 @@ ggideoprimary(
   min_tel_count = 25,
   sample_name = NULL,
   title_plot = NULL,
+  title_x_axis = NULL,
+  title_y_axis = "Chromosome Length",
+  title_legend = "Telomere Presence",
   color_chr = "dodgerblue2",
   size_chr = 6,
   color_tel = "black",
@@ -39,6 +42,12 @@ ggideoprimary(
 \item{sample_name}{A character string specifying the name of the sample for labeling purposes. Default is \code{NULL}.}
 
 \item{title_plot}{A character string specifying the title of the plot. Default is \code{NULL}.}
+
+\item{title_x_axis}{A character string specifying the title of the x axis. Default is \code{NULL}.}
+
+\item{title_y_axis}{A character string specifying the title of the y axis. Default is "Chromosome Length".}
+
+\item{title_legend}{A character string specifying the title of the legend. Default is "Telomere Presence".}
 
 \item{color_chr}{A character string specifying the color of the chromosome segments in the plot. Default is "dodgerblue2".}
 

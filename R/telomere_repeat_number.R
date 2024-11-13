@@ -26,8 +26,8 @@
 #' @seealso \code{\link{create_windows}} and \code{\link{count_sequence}} for the functions used to split sequences
 #' and count the telomere repeats, respectively.
 #'
-#' @importFrom data.table
-#' @importFrom pbapply
+#' @importFrom data.table data.table rbindlist
+#' @importFrom pbapply pblapply pbsapply
 #'
 #' @export
 telomere_repeat_number <- function(fasta, window = 1e6, tel_start = "CCCTAAA", tel_end = "TTTAGGG") {
@@ -44,10 +44,10 @@ telomere_repeat_number <- function(fasta, window = 1e6, tel_start = "CCCTAAA", t
     windows <- create_windows(genome = sequence, window_size = window)
 
     # Count occurrences of the first telomere sequence in each window
-    telomere_start_counts <- sapply(windows, count_sequence, sequence = telomere_start)
+    telomere_start_counts <- pbsapply(windows, count_sequence, sequence = telomere_start)
 
     # Count occurrences of the last telomere sequence in each window
-    telomere_end_counts <- sapply(windows, count_sequence, sequence = telomere_end)
+    telomere_end_counts <- pbsapply(windows, count_sequence, sequence = telomere_end)
 
     # Create a data table for the window counts
     dt_chromosome <- data.table(
@@ -65,4 +65,3 @@ telomere_repeat_number <- function(fasta, window = 1e6, tel_start = "CCCTAAA", t
 
   return(dt)
 }
-
