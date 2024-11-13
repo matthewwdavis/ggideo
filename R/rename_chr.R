@@ -16,7 +16,9 @@
 #'
 #' @export
 rename_chr <- function(data) {
+
   data$Chromosome <- str_extract(data$Chromosome, "\\d+")  # Extract only numeric
   data$Chromosome <- as.numeric(data$Chromosome)  # make numeric
+
   return(data)
 }

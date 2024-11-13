@@ -21,5 +21,8 @@ select_chr <- function(data, chr_string = "Chr"){
   # Remove extraneous scaffolds
   data <- data[grepl(chr_string, data$Chromosome),]
 
+  # Remove leading zero from chromosome numbers 01-09
+  data$Chromosome <- sub(paste0(chr_string, "0(\\d)"), paste0(chr_string, "\\1"), data$Chromosome)
+
   return(data)
 }
