@@ -72,6 +72,9 @@ ggideoprimary <- function(path_fasta, chr_names = "Chr", tel_start_seq = "CCCTAA
   # Remove leading 0s for proper ordering and plotting
   plotting.table <- remove_lead_0s(plotting.table, chr_string = chr_names)
 
+  # Remove trailing strings. These is defined by a space
+  plotting.table <- remove_trailing(plotting.table)
+
   # Set levels so that chromosomes are plotted in the proper order by number
   plotting.table$Chromosome <- factor(plotting.table$Chromosome,
     levels = unique(plotting.table$Chromosome)[order(as.numeric(gsub(chr_names, "", unique(plotting.table$Chromosome))))])
