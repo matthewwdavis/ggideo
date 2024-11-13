@@ -19,6 +19,7 @@
 #' @param y_scale_suffix A character string to append to the y-axis labels, usually a unit suffix like "Mb". Default is "Mb".
 #' @param legend_pos A character string specifying the position of the legend. Default is "bottom".
 #' @param legend_size A numeric value specifying the size of the legend keys. Default is 0.25.
+#' @param text_size A numeric value specifying the size of text for the entire figure. Adjusts `base_size` ggplot function. Default is 6.
 #'
 #' @return A `ggplot` object representing the ideogram plot with chromosome and telomere information visualized.
 #'
@@ -44,7 +45,7 @@
 primary_ideogram <- function(genome.table, plot_title = NULL, x_axis_title = NULL, y_axis_title = "Chromosome Length",
                              legend_title = "Telomere Length", chr_color = "dodgerblue2", chr_size = 8,
                              tel_color = "black", tel_shape = 16, y_scale = 1e-6, y_scale_suffix = "Mb",
-                             legend_pos = "bottom", legend_size = 0.25) {
+                             legend_pos = "bottom", legend_size = 0.25, text_size = 6) {
 
   p <- genome.table %>%
     ggplot(aes(x = Chromosome, y = Length)) +
@@ -60,7 +61,7 @@ primary_ideogram <- function(genome.table, plot_title = NULL, x_axis_title = NUL
                color = tel_color) +
     scale_y_continuous(labels = label_number(scale = y_scale, suffix = y_scale_suffix)) +
     labs(y = y_axis_title, x = x_axis_title, size = legend_title, title = plot_title) +
-    theme_classic(base_size = 6) +
+    theme_classic(base_size = text_size) +
     theme(legend.position = legend_pos,
           legend.key.size = unit(legend_size, "cm"),
           plot.title = element_text(hjust = 0.5, face = "bold"))

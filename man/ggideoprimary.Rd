@@ -23,7 +23,8 @@ ggideoprimary(
   scale_y = 1e-06,
   suffix_y_scale = "Mb",
   pos_legend = "bottom",
-  size_legend = 0.25
+  size_legend = 0.25,
+  size_text = 6
 )
 }
 \arguments{
@@ -64,6 +65,8 @@ ggideoprimary(
 \item{pos_legend}{A character string specifying the position of the legend. Default is "bottom".}
 
 \item{size_legend}{A numeric value specifying the size of the legend keys. Default is 0.25.}
+
+\item{size_text}{A numeric value specifying the size of text for the entire figure. Adjusts \code{base_size} ggplot function. Default is 6.}
 }
 \value{
 A list containing:

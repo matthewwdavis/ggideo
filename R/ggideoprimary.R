@@ -23,7 +23,7 @@
 #' @param suffix_y_scale A character string to append to the y-axis labels, usually a unit like "Mb". Default is "Mb".
 #' @param pos_legend A character string specifying the position of the legend. Default is "bottom".
 #' @param size_legend A numeric value specifying the size of the legend keys. Default is 0.25.
-#'
+#' @param size_text A numeric value specifying the size of text for the entire figure. Adjusts `base_size` ggplot function. Default is 6.
 #' @return A list containing:
 #' \describe{
 #'   \item{genomic.table}{A data frame with chromosome, length, and telomere information.}
@@ -45,7 +45,7 @@ ggideoprimary <- function(path_fasta, chr_names = "Chr", tel_start_seq = "CCCTAA
                           size_windows = 1e6, min_tel_count = 25, sample_name = NULL, title_plot = NULL,
                           title_x_axis = NULL, title_y_axis = "Chromosome Length", title_legend = "Telomere Presence",
                           color_chr = "dodgerblue2", size_chr = 6, color_tel = "black", shape_tel = 16, scale_y = 1e-6,
-                          suffix_y_scale = "Mb", pos_legend = "bottom", size_legend = 0.25){
+                          suffix_y_scale = "Mb", pos_legend = "bottom", size_legend = 0.25, size_text = 6){
 
   # Read in fasta
   genome <- readDNAStringSet(path_fasta)
@@ -85,7 +85,7 @@ ggideoprimary <- function(path_fasta, chr_names = "Chr", tel_start_seq = "CCCTAA
                               y_axis_title = title_y_axis, legend_title = title_legend, chr_color = color_chr,
                               chr_size = size_chr, tel_color = color_tel, tel_shape = shape_tel,
                               y_scale = scale_y, y_scale_suffix = suffix_y_scale, legend_pos = pos_legend,
-                              legend_size = size_legend)
+                              legend_size = size_legend, text_size = size_text)
 
   return(list(genomic.table = plotting.table, ideogram = graphic))
 }

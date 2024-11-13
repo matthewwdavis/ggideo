@@ -17,7 +17,8 @@ primary_ideogram(
   y_scale = 1e-06,
   y_scale_suffix = "Mb",
   legend_pos = "bottom",
-  legend_size = 0.25
+  legend_size = 0.25,
+  text_size = 6
 )
 }
 \arguments{
@@ -48,6 +49,8 @@ and the start and end positions of telomere regions (\code{begin_telo_start}, \c
 \item{legend_pos}{A character string specifying the position of the legend. Default is "bottom".}
 
 \item{legend_size}{A numeric value specifying the size of the legend keys. Default is 0.25.}
+
+\item{text_size}{A numeric value specifying the size of text for the entire figure. Adjusts \code{base_size} ggplot function. Default is 6.}
 }
 \value{
 A \code{ggplot} object representing the ideogram plot with chromosome and telomere information visualized.
