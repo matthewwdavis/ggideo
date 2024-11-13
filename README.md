@@ -15,9 +15,8 @@ devtools::install_github("matthewwdavis/ggideo")
 
 
 ## **Example Usage**
-Here is a quick overview on package usage
 
-Here's a simple example of how to use **ggideo** to create an interactive plot:
+Here's a simple example of how to use **ggideo** to create a plot evaluating chromosome length and telomere presence:
 
 ```{r}
 library(ggideo)
