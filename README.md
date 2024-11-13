@@ -1,4 +1,4 @@
-# ggideo
+# **ggideo**
 **ggideo** is an R package that provides data visualizations using `ggplot2`. It offers functions to dynamically plot genomes for exploratory data analysis.
 
 ## **Installation**
