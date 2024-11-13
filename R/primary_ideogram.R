@@ -33,8 +33,8 @@
 #' )
 #' primary_ideogram(genome.table)
 #'
-#' @importFrom ggplot2 ggplot aes geom_segment geom_point scale_y_continuous labs theme_classic theme unit
-#' @importFrom scales label_number
+#' @importFrom ggplot2
+#' @importFrom scales
 #'
 #' @export
 primary_ideogram <- function(genome.table, plot_title = NULL, chr_color = "dodgerblue2", chr_size = 8,

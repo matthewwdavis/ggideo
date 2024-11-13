@@ -26,8 +26,8 @@
 #' @seealso \code{\link{create_windows}} and \code{\link{count_sequence}} for the functions used to split sequences
 #' and count the telomere repeats, respectively.
 #'
-#' @importFrom data.table data.table rbindlist
-#' @importFrom pbapply pblapply
+#' @importFrom data.table
+#' @importFrom pbapply
 #'
 #' @export
 telomere_repeat_number <- function(fasta, window = 1e6, tel_start = "CCCTAAA", tel_end = "TTTAGGG") {

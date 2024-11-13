@@ -31,11 +31,11 @@
 #' # Example usage
 #' # ggideoprimary(path_fasta = "path/to/genome.fasta", sample_name = "Sample_1", title_plot = "Genome Ideogram")
 #'
-#' @importFrom Biostrings readDNAStringSet
-#' @importFrom data.table data.table
-#' @importFrom ggplot2 ggplot aes geom_segment geom_point scale_y_continuous labs theme_classic theme unit
-#' @importFrom scales label_number
-#' @importFrom dplyr filter
+#' @importFrom Biostrings
+#' @importFrom data.table
+#' @importFrom ggplot2
+#' @importFrom scales
+#' @importFrom dplyr
 #'
 #' @export
 ggideoprimary <- function(path_fasta, chr_names = "Chr", tel_start_seq = "CCCTAAA", tel_end_seq = "TTTAGGG",

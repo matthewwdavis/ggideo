@@ -30,6 +30,7 @@
 #' name <- "MyGenome"
 #' genome_table(fasta_lengths_table, telomere_table, name, genome_size)
 #'
+#' @importFrom dplyr
 #'
 #' @export
 genome_table <- function(fasta_lengths_table, telomere_table, name, genome_size){

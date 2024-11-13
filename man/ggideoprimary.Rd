@@ -14,7 +14,7 @@ ggideoprimary(
   sample_name = NULL,
   title_plot = NULL,
   color_chr = "dodgerblue2",
-  size_chr = 8,
+  size_chr = 6,
   color_tel = "black",
   shape_tel = 16,
   scale_y = 1e-06,
