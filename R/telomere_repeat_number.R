@@ -27,7 +27,7 @@
 #' and count the telomere repeats, respectively.
 #'
 #' @importFrom data.table data.table rbindlist
-#' @importFrom pbapply pblapply pbsapply
+#' @importFrom pbapply pblapply
 #'
 #' @export
 telomere_repeat_number <- function(fasta, window = 1e6, tel_start = "CCCTAAA", tel_end = "TTTAGGG") {
