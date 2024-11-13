@@ -42,7 +42,7 @@ primary_ideogram <- function(genome.table, plot_title = NULL, chr_color = "dodge
                              legend_pos = "bottom", legend_size = 0.25) {
 
   p <- genome.table %>%
-    ggplot(aes(x = as.factor(Chromosome), y = Length)) +
+    ggplot(aes(x = Chromosome, y = Length)) +
     geom_segment(aes(y = begin_telo_start, yend = Length),
                  color = chr_color,
                  linewidth = chr_size,

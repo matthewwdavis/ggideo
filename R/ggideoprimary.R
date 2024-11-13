@@ -66,10 +66,9 @@ ggideoprimary <- function(path_fasta, chr_names = "Chr", tel_start_seq = "CCCTAA
   plotting.table <- genome_table(length.table, tel.table, name = sample_name, genome_size = genome.size)
 
   # Set levels so that chromosomes are plotted in the proper order by number
-  # plotting.table$Chromosome <- factor(plotting.table$Chromosome,
-  #   levels = unique(plotting.table$Chromosome)[order(as.numeric(gsub("Chr", "", unique(plotting.table$Chromosome))))])
+  plotting.table$Chromosome <- factor(plotting.table$Chromosome,
+    levels = unique(plotting.table$Chromosome)[order(as.numeric(gsub("Chr", "", unique(plotting.table$Chromosome))))])
 
-  plotting.table$Chromosome <- rename_chr(plotting.table)
 
   # plot the ideogram
   graphic <- primary_ideogram(plotting.table, plot_title = title_plot, chr_color = color_chr, chr_size = size_chr,
