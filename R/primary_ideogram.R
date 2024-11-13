@@ -43,7 +43,7 @@
 #'
 #' @export
 primary_ideogram <- function(genome.table, plot_title = NULL, x_axis_title = NULL, y_axis_title = "Chromosome Length",
-                             legend_title = "Telomere Length", chr_color = "dodgerblue2", chr_size = 8,
+                             legend_title = "Telomere Size (bp)", chr_color = "dodgerblue2", chr_size = 8,
                              tel_color = "black", tel_shape = 16, y_scale = 1e-6, y_scale_suffix = "Mb",
                              legend_pos = "bottom", legend_size = 0.25, text_size = 6) {
 

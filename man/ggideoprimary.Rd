@@ -15,7 +15,7 @@ ggideoprimary(
   title_plot = NULL,
   title_x_axis = NULL,
   title_y_axis = "Chromosome Length",
-  title_legend = "Telomere Presence",
+  title_legend = "Telomere Size (bp)",
   color_chr = "dodgerblue2",
   size_chr = 6,
   color_tel = "black",

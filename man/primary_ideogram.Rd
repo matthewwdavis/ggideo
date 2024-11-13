@@ -9,7 +9,7 @@ primary_ideogram(
   plot_title = NULL,
   x_axis_title = NULL,
   y_axis_title = "Chromosome Length",
-  legend_title = "Telomere Length",
+  legend_title = "Telomere Size (bp)",
   chr_color = "dodgerblue2",
   chr_size = 8,
   tel_color = "black",
