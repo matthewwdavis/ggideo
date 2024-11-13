@@ -46,6 +46,8 @@ primary_ideogram <- function(genome.table, plot_title = NULL, x_axis_title = NUL
                              legend_pos = "bottom", legend_size = 0.25) {
 
   p <- genome.table %>%
+    filter(begin_telo_bp != 0 & end_telo_bp != 0) %>%
+    genome.table %>%
     ggplot(aes(x = Chromosome, y = Length)) +
     geom_segment(aes(y = begin_telo_start, yend = Length),
                  color = chr_color,
