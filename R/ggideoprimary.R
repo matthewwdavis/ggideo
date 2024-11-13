@@ -40,7 +40,7 @@
 #' @export
 ggideoprimary <- function(path_fasta, chr_names = "Chr", tel_start_seq = "CCCTAAA", tel_end_seq = "TTTAGGG",
                           size_windows = 1e6, min_tel_count = 25, sample_name = NULL, title_plot = NULL, color_chr = "dodgerblue2",
-                          size_chr = 8, color_tel = "black", shape_tel = 16, scale_y = 1e-6, suffix_y_scale = "Mb",
+                          size_chr = 6, color_tel = "black", shape_tel = 16, scale_y = 1e-6, suffix_y_scale = "Mb",
                           pos_legend = "bottom", size_legend = 0.25){
 
   # Read in fasta
