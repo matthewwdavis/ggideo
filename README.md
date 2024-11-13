@@ -1,7 +1,7 @@
 # ggideo
 **ggideo** is an R package that provides data visualizations using `ggplot2`. It offers functions to dynamically plot genomes for exploratory data analysis.
 
-## Installation
+## **Installation**
 
 You can install **ggideo** from GitHub using the following command:
 
@@ -14,7 +14,7 @@ devtools::install_github("matthewwdavis/ggideo")
 ```
 
 
-### 3. **Example Usage**
+## **Example Usage**
 Here is a quick overview on package usage
 
 Here's a simple example of how to use **ggideo** to create an interactive plot:
