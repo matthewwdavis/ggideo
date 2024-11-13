@@ -38,6 +38,7 @@
 #'
 #' @importFrom ggplot2 ggplot aes geom_segment geom_point labs theme_classic theme element_text scale_y_continuous
 #' @importFrom scales label_number
+#' @importFrom dplyr filter
 #'
 #' @export
 primary_ideogram <- function(genome.table, plot_title = NULL, x_axis_title = NULL, y_axis_title = "Chromosome Length",
@@ -46,16 +47,15 @@ primary_ideogram <- function(genome.table, plot_title = NULL, x_axis_title = NUL
                              legend_pos = "bottom", legend_size = 0.25) {
 
   p <- genome.table %>%
-    filter(begin_telo_bp != 0 & end_telo_bp != 0) %>%
     ggplot(aes(x = Chromosome, y = Length)) +
     geom_segment(aes(y = begin_telo_start, yend = Length),
                  color = chr_color,
                  linewidth = chr_size,
                  lineend = "round") +
-    geom_point(aes(x = Chromosome, y = begin_telo_end, size = begin_telo_bp),
+    geom_point(aes(x = Chromosome, y = begin_telo_end, size = ifelse(begin_telo_bp == 0, NA, begin_telo_bp)),
                shape = tel_shape,
                color = tel_color) +
-    geom_point(aes(x = Chromosome, y = end_telo_end, size = end_telo_bp),
+    geom_point(aes(x = Chromosome, y = end_telo_end, size = ifelse(end_telo_bp == 0, NA, end_telo_bp)),
                shape = tel_shape,
                color = tel_color) +
     scale_y_continuous(labels = label_number(scale = y_scale, suffix = y_scale_suffix)) +
