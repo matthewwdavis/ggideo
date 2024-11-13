@@ -47,7 +47,7 @@ ggideoprimary <- function(path_fasta, chr_names = "Chr", tel_start_seq = "CCCTAA
   genome <- readDNAStringSet(path_fasta)
 
   # Create table of contigs, chromosomes, and lengths
-  length.table <- data.table(Chromosome = names(genome), Length = width(genome))[order(-Length)]
+  length.table <- data.table(Chromosome = names(genome), Length = width(genome))
 
   # Filter for only chromosomes, based on starting string
   length.table <- select_chr(length.table, chr_string = chr_names)
@@ -66,11 +66,11 @@ ggideoprimary <- function(path_fasta, chr_names = "Chr", tel_start_seq = "CCCTAA
   plotting.table <- genome_table(length.table, tel.table, name = sample_name, genome_size = genome.size)
 
   # Remove leading 0s for proper ordering and plotting
-  plotting.table <- remove_lead_0s(plotting.table)
+  plotting.table <- remove_lead_0s(plotting.table, chr_string = chr_names)
 
   # Set levels so that chromosomes are plotted in the proper order by number
   plotting.table$Chromosome <- factor(plotting.table$Chromosome,
-    levels = unique(plotting.table$Chromosome)[order(as.numeric(gsub("Chr", "", unique(plotting.table$Chromosome))))])
+    levels = unique(plotting.table$Chromosome)[order(as.numeric(gsub(chr_names, "", unique(plotting.table$Chromosome))))])
 
 
   # plot the ideogram
