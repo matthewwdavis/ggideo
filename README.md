@@ -1,5 +1,5 @@
 
-#_**This package has been retired. All funcitonality has been rolled into the new package ggnomics**_
+# _**This package has been retired. All funcitonality has been rolled into the new package ggnomics**_
 ## **ggideo**
 **ggideo** is an R package that provides data visualizations using `ggplot2`. It offers functions to dynamically plot genomes for exploratory data analysis.
 
